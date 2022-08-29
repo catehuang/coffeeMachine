@@ -92,8 +92,10 @@ def coins_operator():
 
 
 def report():
-    print("\nHere is the report:")
-    print(machine_resources)
+    print(f"Water: {machine_resources['Water']}ml")
+    print(f"Coffee: {machine_resources['Coffee']}g")
+    print(f"Milk: {machine_resources['Milk']}ml")
+    print(f"Money: ${machine_resources['Money']}")
 
 
 def refill_machine():
@@ -101,7 +103,9 @@ def refill_machine():
     machine_resources["Water"] = 5000
     machine_resources["Coffee"] = 600
     machine_resources["Milk"] = 2000
-    print(machine_resources)
+    print(f"Water: {machine_resources['Water']}ml")
+    print(f"Coffee: {machine_resources['Coffee']}g")
+    print(f"Milk: {machine_resources['Milk']}ml")
 
 
 def withdraw_money():
@@ -111,12 +115,15 @@ def withdraw_money():
     machine_resources["Money"] = 0
 
 
-while True:
+is_on = True
+
+while is_on:
     user_input = menu()
     is_valid_option = deal_user_input(user_input)
     if is_valid_option:
         input_number = int(user_input)
         if input_number == 0:
+            print("\nHere is the report:")
             report()
         elif input_number == 999:
             refill_machine()
